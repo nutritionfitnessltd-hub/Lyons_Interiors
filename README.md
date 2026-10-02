@@ -23,7 +23,7 @@ Vercel project: `lyons-interiors`
 
 The source was recovered from the previously preserved `lyons-interiors` branch in `Website-Scrapper` and migrated into this standalone repository. The archived `source/part*.txt` files remain for reproducibility; future editing should use `site/`.
 
-The GitHub workflow now builds and validates the site from `main` on pushes and pull requests.
+The GitHub workflow now builds and validates the site from `main` on pushes and pull requests. Vercel production deployment is connected to the `main` branch.
 
 ## Enquiries and evidence
 
