@@ -69,6 +69,7 @@ export default async function handler(req, res) {
 
   const name = trim(body.name, 80);
   const email = trim(body.email, 160).toLowerCase();
+  const phone = trim(body.phone, 30);
   const postcode = trim(body.postcode, 12).toUpperCase();
   const property = trim(body.property, 80);
   const timing = trim(body.timing, 80);
@@ -77,8 +78,9 @@ export default async function handler(req, res) {
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const postcodePattern = /^(GIR\s?0AA|[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2})$/i;
+  const phoneDigits = phone.replace(/\D/g, '');
 
-  if (!name || !emailPattern.test(email) || !postcodePattern.test(postcode) || !ALLOWED_SERVICES.has(service)) {
+  if (!name || !emailPattern.test(email) || phoneDigits.length < 10 || phoneDigits.length > 15 || !postcodePattern.test(postcode) || !ALLOWED_SERVICES.has(service)) {
     return json(res, 400, { ok: false, error: 'Please check the required enquiry details and try again.' });
   }
 
@@ -91,6 +93,7 @@ export default async function handler(req, res) {
     `Project: ${service}`,
     `Name: ${name}`,
     `Email: ${email}`,
+    `Phone: ${phone}`,
     `Postcode: ${postcode}`,
     `Property: ${property || 'Not provided'}`,
     `Timing: ${timing || 'Not provided'}`,
@@ -108,13 +111,14 @@ export default async function handler(req, res) {
         <tr><td style="padding:8px 0;font-weight:700">Project</td><td style="padding:8px 0">${escapeHtml(service)}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Name</td><td style="padding:8px 0">${escapeHtml(name)}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Email</td><td style="padding:8px 0"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
+        <tr><td style="padding:8px 0;font-weight:700">Phone</td><td style="padding:8px 0"><a href="tel:${escapeHtml(phone.replace(/\s+/g,''))}">${escapeHtml(phone)}</a></td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Postcode</td><td style="padding:8px 0">${escapeHtml(postcode)}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Property</td><td style="padding:8px 0">${escapeHtml(property || 'Not provided')}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Timing</td><td style="padding:8px 0">${escapeHtml(timing || 'Not provided')}</td></tr>
       </table>
       <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:400;color:#16263c">Project details</h2>
       <p style="white-space:pre-wrap">${escapeHtml(details || 'I would like some advice on the right approach.')}</p>
-      <p style="margin-top:28px;padding-top:18px;border-top:1px solid #dbe2ea">Reply to this email to respond directly to ${escapeHtml(name)}.</p>
+      <p style="margin-top:28px;padding-top:18px;border-top:1px solid #dbe2ea">Reply to this email to respond directly to ${escapeHtml(name)}, or call ${escapeHtml(phone)}.</p>
     </div>
   `;
 
