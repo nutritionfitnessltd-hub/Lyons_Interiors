@@ -20,6 +20,10 @@ export const services = [
 ];
 export const sources={
  gypsum:{name:'British Gypsum — plastering technical FAQs',url:'https://www.british-gypsum.com/technical-support/self-help-tools/faqs'},
+ gypsumPainted:{name:'British Gypsum — plastering onto painted walls',url:'https://www.british-gypsum.com/technical-support/self-help-tools/faqs/can-i-plaster-straight-a-painted-wall'},
+ gypsumDamp:{name:'British Gypsum — damp and salt contamination in backgrounds',url:'https://www.british-gypsum.com/technical-support/self-help-tools/faqs/how-deal-salt-contamination-background'},
+ gypsumWater:{name:'British Gypsum — water-damaged plasterboard',url:'https://www.british-gypsum.com/technical-support/self-help-tools/faqs/does-water-damaged-plasterboard-need-be-replaced'},
+ gypsumTemp:{name:'British Gypsum — minimum temperatures for gypsum products',url:'https://www.british-gypsum.com/technical-support/self-help-tools/faqs/what-minimum-temperature-gypsum-products'},
  asbestos:{name:'HSE — asbestos locations and taking the right action',url:'https://www.hse.gov.uk/asbestos/location-materials.htm'}
 };
 export const articles=[
