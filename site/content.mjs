@@ -1,6 +1,6 @@
 export const business = {
  name:'Lyons Interiors', phone:'07306 160862', tel:'+447306160862', email:'info@lyonsinteriors.uk', instagram:'https://www.instagram.com/lyonsinteriorsuk/',
- place:'Morley, Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Morley, Leeds and West Yorkshire. Free consultations and project quotes.'
+ place:'Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Leeds and West Yorkshire. Free consultations and project quotes.'
 };
 export const photos = {
  hero:['photo-1600210492486-724fe5c67fb0','Light-filled living room with neutral walls and timber details'],
@@ -93,7 +93,7 @@ export const articles=[
  ['2. The surfaces you want finished','Explain whether the enquiry concerns one wall, every wall, a ceiling or several rooms. Rough measurements are useful when available; label them clearly rather than supplying one unexplained number. Tell us what finish you want and what is currently on the surface.'],
  ['3. Photographs with context','Take a wide view of each room or surface, then closer photographs of visible damage. Include corners and the surrounding area where relevant. A close-up alone can make it difficult to understand the scale.','Do not disturb coatings, open up walls or climb unsafely to obtain a photograph. Existing survey information can be shared where it is relevant and you are authorised to share it.'],
  ['4. Problems and other planned work','Mention leaks, loose surfaces, recurring cracks or previous repairs honestly. Explain whether electrical work, plumbing or fitted furniture is still planned. These details help avoid discussing a cosmetic finish before the underlying situation is understood.'],
- ['5. Your timing and next step','Say whether you are gathering ideas, ready to arrange a visit or working towards a target date. An initial target is not a confirmed booking.','Use our enquiry builder to organise the details into a message. You choose whether to send it by text or WhatsApp, or copy it for another conversation. Nothing is sent automatically.']
+ ['5. Your timing and next step','Say whether you are gathering ideas, ready to arrange a visit or working towards a target date. An initial target is not a confirmed booking.','Use our enquiry form to organise the details, review them, then send the enquiry directly to Lyons Interiors. Your email address and phone number are included so we can reply or call you back.']
  ],takeaway:'Context saves back-and-forth. A clear brief is more useful than asking for “a price to do a room”.',related:['plastering-cost-leeds','prepare-a-room-for-plastering']},
  {slug:'is-cheapest-plastering-quote-best',category:'Costs & Pricing',title:'Is the cheapest plastering quote the best value?',excerpt:'Sometimes a smaller quote is right. Sometimes you are comparing two completely different jobs.',image:'detail',answer:'The cheapest quote may be the best choice when it covers an appropriate scope and clear expectations. It is not automatically better—or worse—because of the total alone.',sections:[
  ['A lower price can have a sensible explanation','A contractor might be quoting a targeted repair while another has allowed for an entire wall. One proposal may assume you clear the room or arrange preparatory work separately. A simpler approach could be right for your circumstances.','Ask what explains the difference. Do not assume every higher price means better workmanship, or that a low quote must be cutting corners.'],
@@ -103,7 +103,7 @@ export const articles=[
  ],takeaway:'Good value is an appropriate job, clearly priced. Ask what the difference buys before deciding.',related:['plastering-cost-leeds','choosing-a-plasterer']}
 ];
 export const faqs=[
- ['Where do you work?','Lyons Interiors is based around Morley, Leeds and serves Leeds and the wider West Yorkshire region. Share your postcode and project details to check your location.'],
+ ['Where do you work?','Lyons Interiors serves Leeds and the wider West Yorkshire region. Share your postcode and project details to check your location.'],
  ['Do you offer free quotes?','Yes. Free consultations and project quotes are available. Photos and a description are a useful starting point; the surfaces may need a site visit before a scope and price can be confirmed.'],
  ['Can you help with one wall or a small repair?','Tell us about the area and what caused the damage. A targeted repair may be suitable, while some surfaces need wider preparation. We can discuss the appropriate next step.'],
  ['Do you work on commercial properties?','Yes. Residential and commercial interior plastering and finishing are offered. For commercial enquiries, include the scope, access restrictions, specifications and proposed programme.'],

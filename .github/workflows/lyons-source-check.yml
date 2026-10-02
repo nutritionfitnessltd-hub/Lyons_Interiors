@@ -26,5 +26,8 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Check enquiry function syntax
+        run: node --check api/enquiry.js
+
       - name: Build and validate site
         run: npm run build
