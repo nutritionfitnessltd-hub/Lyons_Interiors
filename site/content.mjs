@@ -1,6 +1,6 @@
 export const business = {
  name:'Lyons Interiors', phone:'07306 160862', tel:'+447306160862', email:'info@lyonsinteriors.uk', instagram:'https://www.instagram.com/lyonsinteriorsuk/',
- place:'Morley, Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Morley, Leeds and West Yorkshire. Free consultations and project quotes.'
+ place:'Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Leeds and West Yorkshire. Free consultations and project quotes.'
 };
 export const photos = {
  hero:['photo-1600210492486-724fe5c67fb0','Light-filled living room with neutral walls and timber details'],
@@ -99,7 +99,7 @@ export const articles=[
  ],takeaway:'Good value is an appropriate job, clearly priced. Ask what the difference buys before deciding.',related:['plastering-cost-leeds','choosing-a-plasterer']}
 ];
 export const faqs=[
- ['Where do you work?','Lyons Interiors is based around Morley, Leeds and serves Leeds and the wider West Yorkshire region. Share your postcode and project details to check your location.'],
+ ['Where do you work?','Lyons Interiors serves Leeds and the wider West Yorkshire region. Share your postcode and project details to check your location.'],
  ['Do you offer free quotes?','Yes. Free consultations and project quotes are available. Photos and a description are a useful starting point; the surfaces may need a site visit before a scope and price can be confirmed.'],
  ['Can you help with one wall or a small repair?','Tell us about the area and what caused the damage. A targeted repair may be suitable, while some surfaces need wider preparation. We can discuss the appropriate next step.'],
  ['Do you work on commercial properties?','Yes. Residential and commercial interior plastering and finishing are offered. For commercial enquiries, include the scope, access restrictions, specifications and proposed programme.'],
