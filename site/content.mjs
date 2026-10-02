@@ -1,5 +1,5 @@
 export const business = {
- name:'Lyons Interiors', phone:'07306 160862', tel:'+447306160862', instagram:'https://www.instagram.com/lyonsinteriorsuk/',
+ name:'Lyons Interiors', phone:'07306 160862', tel:'+447306160862', email:'info@lyonsinteriors.uk', instagram:'https://www.instagram.com/lyonsinteriorsuk/',
  place:'Morley, Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Morley, Leeds and West Yorkshire. Free consultations and project quotes.'
 };
 export const photos = {
