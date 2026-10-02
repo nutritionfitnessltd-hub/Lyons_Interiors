@@ -39,13 +39,16 @@ with sync_playwright() as p:
  page.locator('#details').fill('One room, walls only. TEST — do not send.')
  page.get_by_role('button',name='Prepare my enquiry').click()
  assert 'LS27 8AA' in page.locator('#message-preview').inner_text()
- assert '447306160862' in page.locator('#send-sms').get_attribute('href')
+ email_href=page.locator('#send-email').get_attribute('href')
+ assert email_href.startswith('mailto:info@lyonsinteriors.uk?')
+ assert 'Wall%20skimming' in email_href
+ assert 'LS27%208AA' in email_href
  assert 'Not sent yet.' in page.locator('[data-quote-step]').nth(2).inner_text()
  page.screenshot(path=str(root/'quote-builder-check.png'))
  page.keyboard.press('Escape')
  assert not page.locator('#quote-dialog').is_visible()
  assert page.locator('.nav [data-quote]').evaluate('(el)=>el===document.activeElement')
- report['checks']+=['Quote modal opens and closes','Service selection required','Postcode validation','Message preview generated','Correct SMS destination','No automatic sending','Keyboard Escape and focus restoration']
+ report['checks']+=['Quote modal opens and closes','Service selection required','Postcode validation','Message preview generated','Correct email destination and enquiry payload','No automatic sending','Keyboard Escape and focus restoration']
  load(page,'http://127.0.0.1:8765/advice/')
  assert page.locator('.article-card:visible').count()==12
  page.locator('#advice-search').fill('zzzznothing')
