@@ -5,7 +5,7 @@ root=Path(__file__).resolve().parents[1]
 def load(page,url):
  part=url.split('8765')[-1] if '8765' in url else url
  file=root/'public'/part.strip('/')/'index.html'
- html=file.read_text().replace('<link rel="stylesheet" href="/style.css">','<style>'+ (root/'style.css').read_text()+'</style>')
+ html=file.read_text().replace('<head>','<head><base href="http://127.0.0.1:8765/">',1).replace('<link rel="stylesheet" href="/style.css">','<style>'+ (root/'style.css').read_text()+'</style>')
  html=html.replace('<script defer src="/app.js"></script>','').replace('</body>','<script>'+ (root/'app.js').read_text()+'</script></body>')
  page.set_content(html,wait_until='domcontentloaded')
 report={'viewports':[],'checks':[],'console_errors':[]}
@@ -25,6 +25,7 @@ with sync_playwright() as p:
   if w==390:page.screenshot(path=str(root/'mobile-check.png'),full_page=True)
  page.set_viewport_size({'width':1440,'height':1000})
  load(page,'http://127.0.0.1:8765/')
+ page.route('http://127.0.0.1:8765/api/enquiry',lambda route:route.fulfill(status=200,content_type='application/json',body='{"ok":true}'))
  page.locator('.nav [data-quote]').click()
  assert page.locator('#quote-dialog').is_visible()
  page.locator('#choose-project').click()
@@ -32,23 +33,27 @@ with sync_playwright() as p:
  page.get_by_label('Wall skimming',exact=True).check()
  page.locator('#choose-project').click()
  page.locator('#customer-name').fill('Test Customer')
+ page.locator('#customer-email').fill('test@example.com')
+ page.locator('#customer-phone').fill('07123 456789')
  page.locator('#postcode').fill('invalid')
- page.get_by_role('button',name='Prepare my enquiry').click()
+ page.get_by_role('button',name='Review my enquiry').click()
  assert page.locator('#postcode').evaluate('(el)=>el.validationMessage')
- page.locator('#postcode').fill('LS27 8AA')
+ page.locator('#postcode').fill('LS1 6AA')
  page.locator('#details').fill('One room, walls only. TEST — do not send.')
- page.get_by_role('button',name='Prepare my enquiry').click()
- assert 'LS27 8AA' in page.locator('#message-preview').inner_text()
- email_href=page.locator('#send-email').get_attribute('href')
- assert email_href.startswith('mailto:info@lyonsinteriors.uk?')
- assert 'Wall%20skimming' in email_href
- assert 'LS27%208AA' in email_href
- assert 'Not sent yet.' in page.locator('[data-quote-step]').nth(2).inner_text()
+ page.get_by_role('button',name='Review my enquiry').click()
+ preview=page.locator('#message-preview').inner_text()
+ assert 'test@example.com' in preview
+ assert '07123 456789' in preview
+ assert 'LS1 6AA' in preview
+ assert page.locator('#send-enquiry').is_visible()
+ page.get_by_role('button',name='Send my enquiry').click()
+ page.wait_for_function("document.querySelector('#send-result').textContent.includes('has been sent')")
+ assert 'test@example.com' in page.locator('#send-result').inner_text()
  page.screenshot(path=str(root/'quote-builder-check.png'))
  page.keyboard.press('Escape')
  assert not page.locator('#quote-dialog').is_visible()
  assert page.locator('.nav [data-quote]').evaluate('(el)=>el===document.activeElement')
- report['checks']+=['Quote modal opens and closes','Service selection required','Postcode validation','Message preview generated','Correct email destination and enquiry payload','No automatic sending','Keyboard Escape and focus restoration']
+ report['checks']+=['Quote modal opens and closes','Service selection required','Email and phone collected','Postcode validation','Message preview generated','Automatic enquiry submission','Confirmation state','Keyboard Escape and focus restoration']
  load(page,'http://127.0.0.1:8765/advice/')
  assert page.locator('.article-card:visible').count()==12
  page.locator('#advice-search').fill('zzzznothing')
