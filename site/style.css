@@ -28,22 +28,7 @@
 .site-page.tone-sage{--impact:var(--impact-sage)}
 .site-page.tone-plum{--impact:var(--impact-plum)}
 
-/* Homepage: keep it crisp and contemporary rather than editorial-serif */
-.hero h1{
- font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;
- font-size:clamp(58px,6.35vw,96px);
- font-weight:600;
- letter-spacing:-.072em;
- line-height:.94;
- max-width:650px;
-}
-.hero h1 em{
- font-family:inherit;
- font-style:normal;
- font-weight:300;
- letter-spacing:-.066em;
- color:var(--clay);
-}
+/* Homepage: original Lyons serif hero typography */
 .hero-copy .eyebrow{color:var(--ink)}
 
 /* Inner pages: editorial type remains, but selected wording carries the page colour */
@@ -86,6 +71,5 @@
 .article-card:nth-child(5n+5) .card-meta span:first-child{color:var(--impact-plum)}
 
 @media(max-width:700px){
- .hero h1{font-size:clamp(52px,15vw,72px);letter-spacing:-.067em;line-height:.95}
  .page-hero .impact,.article-head .impact{display:inline}
 }
