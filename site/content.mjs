@@ -1,5 +1,6 @@
 export const business = {
  name:'Lyons Interiors', phone:'07306 160862', tel:'+447306160862', email:'info@lyonsinteriors.uk', instagram:'https://www.instagram.com/lyonsinteriorsuk/',
+ google:'https://www.google.com/maps/search/?api=1&query=Lyons%20Interiors&query_place_id=ChIJh23q2r0yjmwRlV61WQEiggg', googleRating:'5.0', googleReviewCount:3,
  place:'Leeds', region:'West Yorkshire', description:'Professional plastering, skimming and interior finishing in Leeds and West Yorkshire. Free consultations and project quotes.'
 };
 export const photos = {
