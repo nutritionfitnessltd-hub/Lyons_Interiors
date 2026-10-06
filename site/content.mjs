@@ -193,5 +193,6 @@ export const faqs=[
  ['Can you help with one wall or a small repair?','Tell us about the area and what caused the damage. A targeted repair may be suitable, while some surfaces need wider preparation. We can discuss the appropriate next step.'],
  ['Do you work on commercial properties?','Yes. Residential and commercial interior plastering and finishing are offered. For commercial enquiries, include the scope, access restrictions, specifications and proposed programme.'],
  ['How soon can the work start?','Availability depends on the current diary and the scope. Contact Lyons Interiors to discuss dates. Sending an enquiry does not reserve a slot or confirm a booking.'],
- ['Can I see your own work?','Yes—follow the linked Lyons Interiors Instagram profile for project updates, and ask about examples relevant to your job. Interior photographs on this website are labelled as inspiration rather than claimed as completed Lyons projects.']
+ ['Can I see your own work?','Yes—follow the linked Lyons Interiors Instagram profile for project updates, and ask about examples relevant to your job. Interior photographs on this website are labelled as inspiration rather than claimed as completed Lyons projects.'],
+ ['Can I read customer reviews?','Yes. Lyons Interiors has a public Google Business Profile with customer reviews. Use the Google review links on this website to read them directly on Google rather than relying on selected quotes copied onto the site.']
 ];
